@@ -23,7 +23,10 @@
 
 .flex-nav-left {
   margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border: 3px solid red;
+  border-radius: 35px;
   width: 15%;
   display: flex;
   flex-direction: column;
@@ -31,6 +34,10 @@
   align-items: center;
   /*padding: 1rem 1rem;*/
 }
-.flex-nav-left a {
+.flex-nav-left .btn-left {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.btn-left a {
   text-decoration: none;
 }
