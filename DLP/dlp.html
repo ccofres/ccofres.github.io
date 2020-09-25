@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DLP</title>
+
+    <script src="./codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="./codemirror/lib/codemirror.css" />
+    <script src="./codemirror/mode/javascript/javascript.js"></script>
+    <script src="./codemirror/addon/edit/matchbrackets.js"></script>
     <link rel="stylesheet" href="../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
   </head>
   <body>
     <!--Nav top -->
@@ -19,5 +25,39 @@
     </nav>
     <!-- FIN Nav top-->
     <h1>DLP Playground</h1>
+    <h2>CodeMirror Editor</h2>
+    <!--CodeMirror Editor-->
+    <form class="editor">
+      <fieldset>
+        <!-- Create a simple CodeMirror instance -->
+        <textarea id="editor" class="editorArea">
+  // Define a model for linear regression.
+  const model = tf.sequential();
+  model.add(tf.layers.dense({units: 1, inputShape: [1]}));
+
+  model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+
+  // Generate some synthetic data for training.
+  const xs = tf.tensor2d([1, 2, 3, 4], [4, 1]);
+  const ys = tf.tensor2d([1, 3, 5, 7], [4, 1]);
+
+  // Train the model using the data.
+  model.fit(xs, ys, {epochs: 10}).then(() => {
+  // Use the model to do inference on a data point the model hasn't seen before:
+  model.predict(tf.tensor2d([5], [1, 1])).print();
+  // Open the browser devtools to see the output
+  });
+        </textarea>
+        <!-- Create a simple CodeMirror instance -->
+      </fieldset>
+    </form>
+    <!--CodeMirror Editor-->
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+        lineNumbers: true,
+        mode: "text/javascript",
+        matchBrackets: true,
+      });
+    </script>
   </body>
 </html>
