@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../code-editor/editor-js.css">
 
     <link rel="stylesheet" href="../../../style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
   </head>
   <body>
     <!--Nav top -->
@@ -39,15 +39,14 @@
         <a href="../model-1/model-1.html">Model 1</a>
       </button>
       <button class="btn-left"><a href="./model-2.html">Model 2</a></button>
-      <button class="btn-left"><a href="../model-3/model-3.html">Model 3</a></button>
+      <button class="btn-left"><a href="../model-3/model-3.html">Clasificador Iris</a></button>
       <button class="btn-left"><a href="#">Model 4</a></button>
     </nav>
     <!-- FIN Nav left-->
     <h2>Code Editor</h2>
     <!--CodeMirror Editor-->
 <section id="static">
-  <pre><code id="static-js" data-height="">
-    async function doTraining(model){
+  <pre><code id="static-js" data-height="">async function doTraining(model){
       const history =
             await model.fit(xs, ys,
                   { epochs: 300,
@@ -61,7 +60,6 @@
                     }
                   });
 }
-
 const model = tf.sequential();
 model.add(tf.layers.dense({units: 1, inputShape: [1]}));
 model.compile({optimizer: 'sgd', loss: 'meanAbsoluteError'});
@@ -81,7 +79,7 @@ timeSec: [0.425, 0.098, 0.052, 0.686, 0.066, 0.078, 0.070, 0.375, 0.058, 0.136,
 };
 const xs = tf.tensor2d(trainData.sizeMB, [20, 1]);
 const ys = tf.tensor2d(trainData.timeSec, [20, 1]);
-
+// Variables test
 const smallFileMB = 1;
 const bigFileMB = 100;
 const hugeFileMB = 10000;
@@ -92,7 +90,6 @@ const hugeFileMB = 10000;
       //modo flat-array de funcion tf.tensor2d()
       //([valor1,valor2],[shape])
   });
-
   </code></pre>
 </section>
 
